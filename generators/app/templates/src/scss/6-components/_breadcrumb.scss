@@ -1,0 +1,21 @@
+.breadcrumb{
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.breadcrumb-item{
+  display: inline-block;
+  color: $gray-600;
+  + .breadcrumb-item{
+    padding-left: 0.5rem;
+    &:before{
+      display: inline-block;
+      padding-right: .5rem;
+      color: $gray-600;
+      content: "/";
+    }
+  }
+  &__link{
+
+  }
+}

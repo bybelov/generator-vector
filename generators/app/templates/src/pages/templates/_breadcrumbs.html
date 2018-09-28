@@ -1,0 +1,14 @@
+{% if page.breadcrumbs[0].title != '' %}
+<nav>
+  <ul class="breadcrumb">
+  {% for item in page.breadcrumbs %}
+    <li class="breadcrumb-item">
+      <a href="{{ item.url }}" class="breadcrumb-item__link">{{ item.title }}</a>
+    </li>
+  {% endfor %}
+    <li class="breadcrumb-item">
+      {{ page.title }}
+    </li>
+  </ul>
+</nav>
+{% endif %}

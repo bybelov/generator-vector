@@ -1,0 +1,9 @@
+@function font-size($key: "regular") {
+  @return map-get($font-size, $key);
+}
+@function font-weight($key: "regular") {
+  @return map-get($font-weight, $key);
+}
+@function line-height($key: "regular") {
+  @return map-get($line-height, $key);
+}

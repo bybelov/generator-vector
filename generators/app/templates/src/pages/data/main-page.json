@@ -1,0 +1,12 @@
+{
+	"page" : {
+		"title" : "Главная",
+		"url"		: "main-page.html",
+		"breadcrumbs" : [
+			{
+				"title" : "",
+				"url" : ""
+			}
+		]
+	}
+}

@@ -1,0 +1,38 @@
+/* MIXINS */
+
+// миксин для генерации шрифтов
+@import "mixins/font-face";
+
+// миксин спрайтов изображений png
+@import "mixins/img_sprite";
+
+// Миксин для генерации цветовых парамеров кнопок
+@import "mixins/button";
+
+// Миксин для генерации placeholder
+@import "mixins/placeholder";
+
+// Миксин для состояния фокус у элементов форм INPUT
+@import "mixins/input-focus";
+
+// svg filters
+@import "mixins/filters";
+
+// Полезности для работы с текстом
+@import "mixins/text";
+
+// Очистка переполнения
+@import "mixins/clearfix";
+
+// аналог cssarrowplease
+// use: @include arrow([position], [size], [color], [borderWidth], [borderColor], [type], [space-left-or-top]);
+@import "mixins/arrow";
+
+// Угловатые секции
+@import "mixins/angled-edges";
+
+// susy grid
+@import 'node_modules/susy/sass/susy'; 
+
+// susy svg grid debug
+@import 'node_modules/susy/sass/plugins/svg-grid';

@@ -1,0 +1,133 @@
+// COLORS
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$primary:      material-color(indigo, 500) !default;
+$secondary:    material-color(pink, 500) !default;
+$success:      material-color(green, 500) !default;
+$info:         material-color(light-blue, 500) !default;
+$warning:      material-color(orange, 500) !default;
+$danger:       material-color(red, 500) !default;
+$light:        material-color(gray, 200) !default;
+$dark:         material-color(blue-grey, 800) !default;
+$muted:        material-color(gray, 600) !default;
+$headings:     material-color(indigo, 900) !default;
+
+
+// BODY
+
+$body-bg:                  #fff !default;
+$body-color:               #333 !default;
+
+// LINKS
+
+$link-color:               $primary !default;
+$link-decoration:          none !default;
+$link-hover-color:         darken($link-color, 15%) !default;
+$link-active-color:        darken($link-color, 15%) !default;
+$link-hover-decoration:    underline !default;
+
+// MARGIN
+
+$paragraph-margin-bottom:  1rem !default;
+$headings-margin-bottom:   .8em !default;
+$form-group-margin-bottom: 16px !default;
+$form-text-margin-top:     .25em !default;
+$label-margin-bottom:      .5rem !default;
+
+// FONTS
+
+$font-family-base:      "Open Sans", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-headings:  "Open Sans", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$font-size: () !default;
+$font-size: map-merge((
+  sm:         (16px * .875),
+  base:       16px,
+  lg:         (16px * 1.25),
+  h1:         30px,
+  h2:         24px,
+  h3:         20px,
+  h4:         18px,
+  h5:         16px,
+  h6:         14px
+), $font-size);
+// example: font-size(base);
+
+$font-weight: () !default;
+$font-weight: map-merge((
+  base:       400,
+  thin:       100,
+  ultralight: 200,
+  light:      300,
+  normal:     400,
+  regular:    400,
+  headings:   500,
+  medium:     500,
+  semibold:   600,
+  bold:       700,
+  heavy:      800,
+  extrabold:  900
+), $font-weight);
+// example: font-weight(regular);
+
+// LINE-HEIGHT
+
+$line-height: () !default;
+$line-height: map-merge((
+  base:       1.5,
+  sm:         1.2,
+  lg:         1.875,
+  headings:   1.2
+), $line-height);
+// example: line-height(base);
+
+// TABLE
+
+$table-cell-padding:     .75rem !default;
+$table-cell-padding-sm:  .3rem !default;
+$table-border-color:     #888 !default;
+$table-caption-color:    $muted !default;
+
+// FORMS
+
+$input-color:         $body-color !default;
+$input-bg:            #ffffff !default;
+$input-bg-disabled:   #fafafa !default;
+$input-placeholder:   #b2b2b2 !default;
+$input-border-color:  #d5d5d5 !default;
+$input-border-width:  1px !default;
+$input-border-radius: 2px !default;
+
+$input-focus-border:  $primary !default;
+
+$input-font-size:     font-size(base) !default;
+$input-height-base:   40px !default;
+$input-padding:       6px 12px !default;
+
+
+// CODE
+
+$code-font-size:             87.5% !default;
+$code-color:                 $danger !default;
+
+$kbd-padding-y:              .2rem !default;
+$kbd-padding-x:              .4rem !default;
+$kbd-font-size:              ceil(.85 * font-size(base)) !default;
+$kbd-color:                  #fff !default;
+$kbd-bg:                     $dark !default;
+
+$pre-color:                  $dark !default;
+
+$dt-font-weight:             font-weight(bold) !default;

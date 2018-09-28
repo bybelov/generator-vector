@@ -1,0 +1,21 @@
+.text {
+  &-nowrap {
+    white-space: nowrap;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-justify {
+    text-align: justify;
+  }
+}

@@ -1,0 +1,41 @@
+@mixin button-theme($color, $background, $border, $btn-hover, $btn-focus, $btn-active) {
+  color: $color;
+  fill: $color;
+  background-color: $background;
+  @if $border != 'none'{
+    border-color: $border;
+  }
+  &:focus {
+    color: $color;
+    background-color: $btn-focus;
+    @if $border != 'none'{
+      border-color: $btn-focus;
+    }
+  }
+  &:hover {
+    color: $color;
+    background-color: $btn-hover;
+    @if $border != 'none'{
+      border-color: $btn-hover;
+    }
+  }
+  &:active {
+    color: $color;
+    background-color: $btn-active;
+    @if $border != 'none'{
+      border-color: $btn-active;
+    }
+  }
+  &:active {
+    background-image: none;
+  }
+  &[disabled] {
+    &:focus,
+    &:hover {
+      background-color: $background;
+      @if $border != 'none'{
+        border-color: $border;
+      }
+    }
+  }
+}

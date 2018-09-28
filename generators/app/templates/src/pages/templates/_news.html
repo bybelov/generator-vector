@@ -1,0 +1,11 @@
+<div class="news-list">
+  {% for item in news %}
+  <div class="news-item">
+    <time class="news-item__date" datetime="{{ item.date | replace(".", "-")}}">{{ item.date }}</time>
+    <h4 class="news-item__title">
+      <a href="{% if item.url != '' %}{{ item.url }}{% else %}#{% endif %}" class="news-item__link">{{ item.title }}</a>
+    </h4>
+    <div class="news-item__announce">{{ item.announce }}</div>
+  </div>
+  {% endfor %}
+</div>

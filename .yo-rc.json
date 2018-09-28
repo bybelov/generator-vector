@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Igor",
+      "authorEmail": "bybelov@gmail.com",
+      "authorUrl": "https://www.facebook.com/belovby"
+    }
+  }
+}

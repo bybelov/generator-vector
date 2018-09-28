@@ -1,0 +1,12 @@
+{
+	"page" : {
+		"title" : "Default UI kit",
+		"url"		: "ui-kit.html",
+		"breadcrumbs" : [
+			{
+				"title" : "",
+				"url" : ""
+			}
+		]
+	}
+}

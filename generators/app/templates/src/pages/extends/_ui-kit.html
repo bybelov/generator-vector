@@ -1,0 +1,43 @@
+{% extends "./_base.html" %}
+{% block content %}
+  <style>
+  .main{
+    padding: 3em 0;
+  }
+  .ui-page-title{
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  .ui-title{
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+  	margin-bottom:  1em;
+  }
+  .ui-desc{
+    color: #888;
+    margin-bottom: 1em;
+  }
+  .ui-block{
+    margin-bottom: 3em;
+  }
+  .ui-row{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+  }
+  .ui-form-group{
+    margin-bottom: 1rem;
+  }
+  .ui-col-6{
+    width: 50%;
+  }
+  .ui-col-3{
+    width: 33.33%;
+  }
+  </style>
+  {% block uikit %}
+  {% endblock %}
+{% endblock %}

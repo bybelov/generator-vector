@@ -1,0 +1,42 @@
+body > svg {
+  height: 0;
+  width: 0;
+  position: absolute;
+  visibility: hidden;
+}
+
+.svg-icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1em;
+  height: 1em;
+  width: 1em;
+  fill: inherit;
+  stroke: inherit;
+}
+//font-size:px;
+.icon-cart {
+  width:(24/24)+em;
+}.icon-check {
+  width:(24/24)+em;
+}.icon-chevron-down {
+  width:(24/24)+em;
+}.icon-chevron-left {
+  width:(24/24)+em;
+}.icon-chevron-right {
+  width:(24/24)+em;
+}.icon-chevron-up {
+  width:(24/24)+em;
+}.icon-close {
+  width:(24/24)+em;
+}.icon-facebook {
+  width:(24/24)+em;
+}.icon-minus {
+  width:(24/24)+em;
+}.icon-plus {
+  width:(24/24)+em;
+}.icon-twitter {
+  width:(24/24)+em;
+}.icon-vk {
+  width:(24/24)+em;
+}

@@ -1,0 +1,74 @@
+@mixin arrow(
+	$position: right,
+	$size: 10px,
+	$color: black,
+	$borderWidth: 0,
+	$borderColor: transparent,
+	$type: outside,
+  $left: 50%
+) {
+	position: relative;
+
+	// Revert $position if needed
+	@if $type == outside {
+		@if $position == top {
+      $position: right;
+    }
+		@else if $position == bottom {
+      $position: right;
+    }
+		@else if $position == left {
+      $position: right;
+    }
+		@else {
+      $position: right;
+    }
+	}
+
+	$position2: top;
+	@if $position == top or $position == bottom {
+    $position2: top;
+  }
+
+	$before: '';
+	@if $borderWidth > 0 {
+    $before: '';
+  }
+
+	&:after#{$before} {
+		border: solid transparent;
+		content: '';
+		height: 0;
+		@if $type == inside and $borderWidth > 0 {
+      margin: -$borderWidth;
+    }
+		pointer-events: none;
+		position: absolute;
+		@if $type == outside {
+      #{$position}: 100%;
+    }
+		@else {
+      #{$position}: 0;
+    }
+		#{$position2}: $left;
+		width: 0;
+	}
+
+	&:after {
+		border-color: rgba($color, 0);
+		border-#{$position}-color: $color;
+		border-width: $size;
+		margin-#{$position2}: -$size;
+	}
+
+	@if $borderWidth > 0 {
+		&:before {
+			$outerSize: round($borderWidth * 1.41421356);
+			border-color: rgba($borderColor, 0);
+			border-#{$position}-color: $borderColor;
+			border-width: $size + $outerSize;
+			margin-#{$position2}: -($size + $outerSize);
+		}
+	}
+
+}

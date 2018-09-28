@@ -1,0 +1,21 @@
+.rouble {
+  font-family: 'rouble';
+}
+
+// font-bold, font-semibold ...
+.font {
+  @each $name, $weight in $font-weight {
+    &-#{$name} {
+      font-weight: $weight;
+    }
+  }
+}
+
+// font-sm, font-base, font-h1, font-h2 ...
+.font {
+  @each $type, $size in $font-size {
+    &-#{$type} {
+      font-size: $size;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+table {
+  margin-bottom: 1rem;
+  > tbody,
+  > thead,
+  > tfoot {
+    > tr {
+      > td,
+      > th {
+        padding: $table-cell-padding;
+      }
+    }
+  }
+}

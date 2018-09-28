@@ -1,0 +1,28 @@
+.menu {
+  margin-left: auto;
+
+  &__inner {
+    list-style: none;
+    margin: 0;
+  }
+}
+
+.menu-item {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1em;
+
+  &.active {
+    >.menu-item__link {
+      background-color: $primary;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  &__link {
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    display: block;
+  }
+}

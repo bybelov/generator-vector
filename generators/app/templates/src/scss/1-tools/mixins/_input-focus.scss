@@ -1,0 +1,6 @@
+@mixin input-focus($color: $input-focus-border) {
+  &:focus {
+    border-color: $color;
+    outline: 0;
+  }
+}

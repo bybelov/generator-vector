@@ -1,0 +1,107 @@
+// Forms
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+output {
+  padding-top: 4px;
+  font-size: font-size(base);
+  line-height: line-height(base);
+  color: $input-color;
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  height: $input-height-base;
+  padding: $input-padding;
+  font-size: $input-font-size;
+  line-height: line-height(base);
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+  // Placeholder
+  @include placeholder;
+  @include input-focus;
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    border: 0;
+    background-color: transparent;
+  }
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: $input-bg-disabled;
+    opacity: 1;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+}
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+}
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  height: $input-height-base;
+}
+textarea{
+  height: auto;
+  min-height: $input-height-base;
+}
+
+.form{
+  &__group{
+    margin-bottom: $form-group-margin-bottom;
+  }
+  &__text{
+    display: block;
+    margin-top: $form-text-margin-top;
+  }
+  &__label{
+    display: block;
+  }
+  &__notification{
+    display: block;
+    font-size: 12px;
+    padding: 2px 0;
+  }
+}
