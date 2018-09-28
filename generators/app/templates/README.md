@@ -13,7 +13,7 @@ HTML собирается через шаблонизатор Nunjucks
 
 ### Шаг 1. Подготовительный
 
-Установить nodejs — https://nodejs.org/en/
+Установить nodejs — https://nodejs.org/en/  
 Установить yarn — https://yarnpkg.com/lang/en/ (опционально)
 
 ### Шаг 2. Установка необходимых пакетов
