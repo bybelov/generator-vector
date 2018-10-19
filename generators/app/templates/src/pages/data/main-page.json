@@ -1,6 +1,6 @@
 {
 	"page" : {
-		"title" : "Главная",
+		"title" : "Main page",
 		"url"		: "main-page.html",
 		"breadcrumbs" : [
 			{

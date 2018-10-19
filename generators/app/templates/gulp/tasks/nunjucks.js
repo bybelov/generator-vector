@@ -56,4 +56,8 @@ gulp.task('nunjucks:watch', function() {
   gulp.watch([
     config.src.pages + '/**/_*.html'
   ], ['nunjucks', 'inject']);
+
+  gulp.watch([
+    config.src.pages + '/**/*.json'
+  ], ['nunjucks:changed', 'inject']);
 });

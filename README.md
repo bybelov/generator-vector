@@ -16,6 +16,8 @@ Then generate your new project:
 yo vector
 ```
 
+![alt text](https://github.com/bybelov/generator-vector/preview.png "About Starter kit for creating static sites")
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
