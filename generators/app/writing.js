@@ -28,10 +28,11 @@ module.exports = function() {
   // Gulp tasks
   this.fs.copy(this.templatePath('gulp/**/*.*'), 'gulp/');
 
-  // Src fonts, icons, images
+  // Src fonts, icons, images, videos
   this.fs.copy(this.templatePath('src/fonts/**/*.*'), 'src/fonts/');
   this.fs.copy(this.templatePath('src/icons/*.svg'), 'src/icons/');
   this.fs.copy(this.templatePath('src/images/**/*.*'), 'src/images/');
+  this.fs.copy(this.templatePath('src/videos/**/*.*'), 'src/videos/');
 
   // Src pages
   this.fs.copy(this.templatePath('src/pages/**/*.*'), 'src/pages/');

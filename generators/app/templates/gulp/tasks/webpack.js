@@ -1,7 +1,7 @@
 const gulp          = require('gulp'),
       webpackStream = require('webpack-stream'),
       config        = require('../config.js'),
-      webpackConfig   = require('../../webpack.config.js');
+      webpackConfig = require('../../webpack.config.js');
 
 gulp.task('webpack', () => {
   gulp.src(config.src.js)

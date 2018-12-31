@@ -11,6 +11,7 @@ function build(cb) {
     'scss',
     'nunjucks',
     'copy',
+    'video',
     'inject',
     'webpack',
     cb

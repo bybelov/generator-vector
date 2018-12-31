@@ -3,6 +3,7 @@ var gulp   = require('gulp'),
 
 gulp.task('watch', [
     'copy:watch',
+    'video:watch',
     'picture:watch',
     'nunjucks:watch',
     'inject:watch',
