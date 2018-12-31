@@ -1,6 +1,6 @@
 {
   "name": "generator-vector",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Yeoman generator for creating static sites (gulp, webpack, nunjucks, scss, svg and png sprites, favicon generator)",
   "homepage": "https://github.com/bybelov/generator-vector",
   "author": {
