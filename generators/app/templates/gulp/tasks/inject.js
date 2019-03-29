@@ -18,7 +18,7 @@ gulp.task('inject', ['nunjucks'], function () {
           if (filePath.slice(-5) === '.json') {
             let listItem;
             let test = JSON.parse(fs.readFileSync(config.src.data + '/' + path.basename(file.path)));
-            let regexp = /^(.*[\\{1,2}/])*(.+).json/i;
+            let regexp = /^(.*[\/])*(.+).json/i;
             let filename = filePath.match(regexp);
             if (filename[2] != 'index') { // исключаем index.html из списка
               listItem = '<li><a href="' + filename[2] + '.html">' + test.page.title + '</a></li>'

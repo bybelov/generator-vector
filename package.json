@@ -1,6 +1,6 @@
 {
   "name": "generator-vector",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Yeoman generator for creating static sites (gulp, webpack, nunjucks, scss, svg and png sprites, favicon generator)",
   "homepage": "https://github.com/bybelov/generator-vector",
   "author": {
@@ -26,22 +26,22 @@
   "devDependencies": {
     "yeoman-test": "^1.9.1",
     "yeoman-assert": "^3.1.1",
-    "coveralls": "^3.0.2",
-    "eslint": "^5.11.1",
-    "prettier": "^1.15.3",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.15.3",
+    "prettier": "^1.16.4",
     "husky": "^1.3.1",
-    "lint-staged": "^8.1.0",
-    "eslint-config-prettier": "^3.3.0",
+    "lint-staged": "^8.1.5",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-config-xo": "^0.25.1",
-    "jest": "^23.6.0"
+    "eslint-config-xo": "^0.26.0",
+    "jest": "^24.5.0"
   },
   "engines": {
     "npm": ">= 4.0.0"
   },
   "dependencies": {
     "yeoman-generator": "^3.2.0",
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "yosay": "^2.0.2"
   },
   "jest": {

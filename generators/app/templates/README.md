@@ -36,6 +36,16 @@ npm run dev
 npm run build
 ```
 
+внедрение критичного css (https://www.npmjs.com/package/critical) в уже собранный проект,
+сначала
+```bash
+npm run build
+```
+затем запуск
+```bash
+gulp critical-css
+```
+
 ## Структура проекта
 
 * build/ - сюда будет собираться проект
