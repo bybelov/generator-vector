@@ -1,74 +1,50 @@
-var gulp          = require('gulp'),
-    plumber       = require("gulp-plumber"),
-    realFavicon   = require('gulp-real-favicon'),
-    fs            = require('fs'),
-    config        = require('../config.js');
+import gulp from 'gulp';
+import favicons from 'favicons';
+import log from 'fancy-log';
+import config from '../config';
 
-// File where the favicon markups are stored
-var FAVICON_DATA_FILE = 'faviconData.json';
+gulp.task("favicon", () => gulp
+  .src(config.src.favicon)
+  .pipe( favicons.stream({
+    appName: "My Site",
+    appShortName: "Site",
+    appDescription: "Static layout pages",
+    background: "#ffffff",
+    path: "/",
+    url: "/",
+    display: "standalone",
+    orientation: "natural",
+    lang: "ru-RU",
+    start_url: "/",
+    version: 1.0,
+    logging: false,
+    html: '../src/pages/templates/_favicon.html',
+    pipeHTML: true,
+    replace: true,
+    icons: {
+      // Platform Options:
+      // - offset - offset in percentage
+      // - background:
+      //   * false - use default
+      //   * true - force use default, e.g. set background for Android icons
+      //   * color - set background for the specified icons
+      //   * mask - apply mask in order to create circle icon (applied by default for firefox). `boolean`
+      //   * overlayGlow - apply glow effect after mask has been applied (applied by default for firefox). `boolean`
+      //   * overlayShadow - apply drop shadow after mask has been applied .`boolean`
+      //
+      android: true,              // Create Android homescreen icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+      appleIcon: true,            // Create Apple touch icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+      appleStartup: false,         // Create Apple startup images. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+      coast: false,                // Create Opera Coast icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+      favicons: true,             // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+      firefox: false,              // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+      windows: true,              // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+      yandex: false                // Create Yandex browser icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+    }
+  }))
+  .on("error", log)
+  .pipe(gulp.dest(config.dest.root))
+);
 
-// Generate the icons. This task takes a few seconds to complete.
-// You should run it at least once to create the icons. Then,
-// you should run it whenever RealFaviconGenerator updates its
-// package (see the check-for-favicon-update task below).
-gulp.task('generate-favicon', function(done) {
-  realFavicon.generateFavicon({
-    masterPicture: config.src.favicon,
-    dest: config.dest.root,
-    iconsPath: '/',
-    design: {
-      ios: {
-        pictureAspect: 'noChange',
-        assets: {
-          ios6AndPriorIcons: false,
-          ios7AndLaterIcons: false,
-          precomposedIcons: false,
-          declareOnlyDefaultIcon: true
-        }
-      },
-      desktopBrowser: {},
-      windows: {
-        pictureAspect: 'noChange',
-        backgroundColor: '#603cba',
-        onConflict: 'override',
-        assets: {
-          windows80Ie10Tile: false,
-          windows10Ie11EdgeTiles: {
-            small: false,
-            medium: true,
-            big: false,
-            rectangle: false
-          }
-        }
-      },
-      androidChrome: {
-        pictureAspect: 'noChange',
-        themeColor: '#ffffff',
-        manifest: {
-          display: 'standalone',
-          orientation: 'notSet',
-          onConflict: 'override',
-          declared: true
-        },
-        assets: {
-          legacyIcon: false,
-          lowResolutionIcons: false
-        }
-      }
-    },
-    settings: {
-      scalingAlgorithm: 'Mitchell',
-      errorOnImageTooSmall: false
-    },
-    markupFile: FAVICON_DATA_FILE
-  }, function() {
-    done();
-  });
-});
-
-gulp.task('inject-favicon-markups', function() {
-  return gulp.src(config.src.templates + '/_favicon.html')
-    .pipe(plumber())
-    .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-    .pipe(gulp.dest(config.src.templates + '/_favicon.html'));
-});
+const build = gulp => gulp.parallel('favicon');
+module.exports.build = build;

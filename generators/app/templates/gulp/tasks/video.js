@@ -1,12 +1,16 @@
-var gulp    = require('gulp'),
-    config  = require('../config.js');
+import gulp from 'gulp';
+import config from '../config';
 
+// copy video files
+gulp.task('video', () => gulp
 
-gulp.task('video', function() {
-  gulp.src(config.src.video + '/*.{mp4,ogv,webm}')
-    .pipe(gulp.dest(config.dest.video))
-});
+  .src(config.src.video + '/*.{mp4,ogv,webm}')
+  .pipe(gulp.dest(config.dest.video))
 
-gulp.task('video:watch', function() {
-  gulp.watch(config.src.video + '/*.{mp4,ogv,webm}', ['video']);
-});
+);
+
+const build = gulp => gulp.parallel('video');
+const watch = gulp => () => gulp.watch(config.src.video + '/*.{mp4,ogv,webm}', gulp.series('video'));
+
+module.exports.build = build;
+module.exports.watch = watch;

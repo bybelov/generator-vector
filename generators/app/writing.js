@@ -18,10 +18,9 @@ module.exports = function() {
   this.fs.copy(this.templatePath('gitignore'), '.gitignore');
   this.fs.copy(this.templatePath('eslintrc'), '.eslintrc');
   this.fs.copy(this.templatePath('babelrc'), '.babelrc');
-  this.fs.copy(this.templatePath('gulpfile.js'), 'gulpfile.js');
+  this.fs.copy(this.templatePath('gulpfile.babel.js'), 'gulpfile.babel.js');
   this.fs.copy(this.templatePath('jsconfig.json'), 'jsconfig.json');
   this.fs.copy(this.templatePath('webpack.config.js'), 'webpack.config.js');
-  this.fs.copy(this.templatePath('faviconData.json'), 'faviconData.json');
   this.fs.copy(this.templatePath('README.md'), 'README.md');
   this.fs.copyTpl(this.templatePath('package.json'), 'package.json', props);
 
@@ -59,6 +58,7 @@ module.exports = function() {
     this.fs.copy(this.templatePath('src/scss/5-elements/**/*.*'), 'src/scss/5-elements/');
     this.fs.copy(this.templatePath('src/scss/main.scss'), 'src/scss/main.scss');
   }
+
   this.fs.copy(this.templatePath('src/scss/1-tools/**/*.*'), 'src/scss/1-tools/');
   this.fs.copy(this.templatePath('src/scss/2-fonts/**/*.*'), 'src/scss/2-fonts/');
   mkdirp(path.join(destPath, 'src/scss/4-vendor'));

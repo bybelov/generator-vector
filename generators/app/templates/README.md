@@ -1,115 +1,140 @@
 # vector startup layout project
 
-### Стартовый сборщик проектов для верстки сайта.
+## Install
 
-Gulp — задачи для сборки, которые не связаны с JS  
-Webpack — используется только для работы с JS файлами
+### Step 1.
 
-Стили проекта пишутся на SCSS  
-HTML собирается через шаблонизатор Nunjucks  
-Векторные иконки собираются в svg sprite или можно использовать icon fonts
+Install nodejs — https://nodejs.org/en/ or
+Install yarn — https://yarnpkg.com/lang/en/ (option)
 
-## Установка
+### Step 2. Install packages
 
-### Шаг 1. Подготовительный
-
-Установить nodejs — https://nodejs.org/en/  
-Установить yarn — https://yarnpkg.com/lang/en/ (опционально)
-
-### Шаг 2. Установка необходимых пакетов
-В качестве менеджера пакетов используется npm или yarn  
-Устанавливаем пакеты:
 ```bash
 npm i
 ```
 
-### Шаг 3. Запуск
-Для запуска проекта:
-
-в режиме Разработчика
+or
 ```bash
-npm run dev
+yarn
 ```
 
-в режиме Публикации готового проекта
+### Step 3. Start
+
+Developer build
 ```bash
-npm run build
+npm run start
 ```
 
-внедрение критичного css (https://www.npmjs.com/package/critical) в уже собранный проект,
-сначала
+Publication build
 ```bash
 npm run build
 ```
-затем запуск
-```bash
-gulp critical-css
-```
 
-## Структура проекта
+### Other tasks
+Task name          | Description                                                      
+:------------------|:----------------------------------
+`scss` 	           | compile .scss to .css.
+`css:critical`     | critical extracts & inlines critical-path (above-the-fold) CSS from HTML [critical-css](https://www.npmjs.com/package/critical)
+`webpack`          | compile .js sources into bundle file
+`copy`             | copy common files from `./src` path to `./build` path
+`video`            | copy video files
+`nunjucks`         | compile Mozilla's awesome [nunjucks](https://mozilla.github.io/nunjucks/) templates
+`images`           | copy and optimize images
+`sprite:svg`       | create svg symbol sprites
+`sprite:png`       | create png sprites
+`favicon`          | favicon, manifest generator
+`server`           | run dev-server powered by [BrowserSync](https://www.browsersync.io/)
+`clean`            | remove `./build` folder
 
-* build/ - сюда будет собираться проект
-* gulp/ - задачи для gulp
+## Project structure
+
+* build/ - destination path
+* gulp/ - gulp tasks
 * node_modules/
-* src/ - папка с исходниками проекта
-* .babelrc - настройки для babel loader
-* .eslintrc - настройки для линтера
+* src/ - source path
+* .babelrc - babel loader setting
+* .eslintrc - linter setting
 * .gitignore
-* faviconData.json - настройки для генерации favicon.ico
+* faviconData.json - favicon.ico setting
 * gulpfile.js
 * package.json
 * README.md
 * webpack.config.js
 
+### SRC folder
 
-### Содержимое папки src
-
-* fonts             : шрифты проекта
-* icons             : svg иконки, для последующей сборки в svg спрайт
+* fonts             : fonts
+* icons             : svg icons for svg sprite
 * images
-  * demo            : демо изображения
-  * sprites         : .png иконки, для последующей сборки в png спрайт
-  * favicon.png     : картинка png 256x256px для генерации favicon.ico
+  * demo            : path for demo images
+  * sprites         : .png icons for png sprite
+  * favicon.png     : source picture 512x512px for favicon.ico
 * js
-  * app             : свои скрипты
-  * vendor          : сторонние плагины, скрипты
- * app.js           : подключение своих скриптов
- * vendor.js        : подключение, импорт скриптов из папки vendor, node_modules, bower_components
+  * app             : custom scripts
+  * vendor          : vendor scripts, plugins
+ * app.js           : init custom scripts
+ * vendor.js        : init vendor scripts
 * pages
-  * data            : данные в формате JSON для каждой страницы проекта, напр. index.json, news.json, catalog.json
-  * extends         : обертка для страниц
-  * templates       : шаблоны, блоки для страниц
-  * index.html      : индексная страница проекта
-  * news.html       : дополнительные страницы проекта
+  * data            : JSON data for every pages, example: index.json, news.json, catalog.json
+  * extends         : wrapper for pages
+  * templates       : templates
+  * index.html      : index page
+  * news.html       : other website pages
 * scss
-  * 0-settings      : настройки (не генерируют стили на выходе)
-    * variables     : настройки глобальных переменных проекта
-  * 1-tools         : инструменты (не генерируют стили на выходе)
-    * functions     : функции SASS
-    * mixins        : миксины SASS
-  * 2-fonts         : подключение пользовательских шрифтов
-  * 3-generic       : сброс или нормализация стилей, стили для печати, подключение шрифтов
-  * 4-vendor        : стили сторонних скриптов, плагинов
-  * 5-elements      : базовые стили html элементов (h1, a, p, ul, li ...)
-  * 6-components    : пользовтельские ui компоненты
-    * sprites       : авто генерируемые файлы для формирования png, svg спрайтов
-  * 7-helpers       : классы помощники (show, hide, text-center ...)
-  * main.scss       : импорт функций, миксинов, переменных, базовых и пользовательских стилей в проект
+  * 0-settings      : setting (не генерируют стили на выходе)
+    * variables     : setting global variables
+  * 1-tools         : tools for sass
+    * functions     : sass functions
+    * mixins        : sass mixins
+  * 2-fonts         : custom fonts
+  * 3-generic       : reset styles, print styles
+  * 4-vendor        : vendor styles
+  * 5-elements      : base element styles (h1, a, p, ul, li ...)
+  * 6-components    : custom styles
+    * sprites       : don't edit, for sprites
+  * 7-helpers       : helper custom styles (show, hide, text-center ...)
+  * main.scss       : main sass file
 
 
-## Обновление пакетов
+## Update packages
 
-Установить глобально пакет ncu
+install ncu package
 ```bash
 npm install ncu -g
 ```
 
-Проверить обновления
+check updates
 ```bash
 ncu
 ```
 
-## Генератор favicon
+## Generator favicon
 
-Используется сервис https://realfavicongenerator.net/favicon/gulp
-В папке gulp/tasks/favicon.js расширенные настройки по генерации
+Use https://realfavicongenerator.net/favicon/gulp
+./gulp/tasks/favicon.js setting for generator
+
+##Flags
+
+```bash
+gulp --open
+```
+or
+```bash
+gulp server --open
+```
+run dev server and then open preview in browser
+
+```bash
+gulp --tunnel=[name]
+```
+or
+```bash
+gulp server --tunnel [name]
+```
+runs dev server and allows you to easily share a web service on your local development machine (powered by localtunnel.me). Your local site will be available at [name].localtunnel.me.
+
+or
+```bash
+gulp [task_name] --production
+```
+run task in production mode. Some of the tasks (like, sass or js compilation) have additional settings for production mode (such as code minification), so with this flag you can force production mode. gulp build uses this mode by default.

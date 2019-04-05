@@ -1,12 +1,15 @@
-var argv = require('minimist')(process.argv.slice(2)),
-  log = require('fancy-log'),
-  colors = require('ansi-colors');
+import argv from 'yargs';
+import log from 'fancy-log';
+import colors from 'ansi-colors';
 
-var production = argv.production || argv.prod || false;
-var srcPath    = 'src',
-  destPath   = 'build';
+argv.argv;
 
-var config = {
+// console.log('argv.argv = ' + JSON.stringify(argv.argv) );
+const production = argv.argv.production || argv.argv.prod || false;
+const srcPath    = 'src',
+      destPath   = 'build';
+
+const config = {
   env:          'development',
   production:   production,
   src: {

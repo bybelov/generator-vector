@@ -1,16 +1,17 @@
-var gulp          = require('gulp'),
-  nunjucksRender  = require('gulp-nunjucks-render'),
-  plumber         = require('gulp-plumber'),
-  gulpif          = require('gulp-if'),
-  changed         = require('gulp-changed'),
-  prettify        = require('gulp-prettify'),
-  data            = require('gulp-data'),
-  fs              = require('fs'),
-  path            = require('path'),
-  // frontMatter  = require('gulp-front-matter'),
-  config          = require('../config.js');
+import gulp from 'gulp';
+import nunjucksRender from 'gulp-nunjucks-render';
+import plumber from 'gulp-plumber';
+import gulpif from 'gulp-if';
+import changed from 'gulp-changed';
+import prettify from 'gulp-prettify';
+// import frontMatter from 'gulp-front-matter';
+import data from 'gulp-data';
+import fs from 'fs';
+import path from 'path';
+import config from '../config';
 
-function renderHtml(onlyChanged) {
+
+const renderHtml = onlyChanged => {
 
   nunjucksRender.nunjucks.configure({
     watch: false,
@@ -38,26 +39,31 @@ function renderHtml(onlyChanged) {
       end_with_newline: false
     }))
     .pipe(gulp.dest(config.dest.pages));
+
 }
 
-gulp.task('nunjucks', function() {
-  return renderHtml();
-});
+gulp.task('nunjucks', () => renderHtml());
+gulp.task('nunjucks:changed', () => renderHtml(true));
 
-gulp.task('nunjucks:changed', function() {
-  return renderHtml(true);
-});
+const build = gulp => gulp.series('nunjucks', 'inject');
 
-gulp.task('nunjucks:watch', function() {
-  gulp.watch([
-    config.src.pages + '/**/[^_]*.html'
-  ], ['nunjucks:changed', 'inject']);
+const watch = gulp => {
+  return function() {
 
-  gulp.watch([
-    config.src.pages + '/**/_*.html'
-  ], ['nunjucks', 'inject']);
+    gulp.watch([
+      config.src.pages + '/**/[^_]*.html'
+    ], gulp.series('nunjucks:changed', 'inject'));
 
-  gulp.watch([
-    config.src.pages + '/**/*.json'
-  ], ['nunjucks:changed', 'inject']);
-});
+    gulp.watch([
+      config.src.pages + '/**/_*.html'
+    ], gulp.series('nunjucks', 'inject'));
+
+    gulp.watch([
+      config.src.pages + '/**/*.json'
+    ], gulp.series('nunjucks:changed', 'inject'));
+
+  }
+};
+
+module.exports.build = build;
+module.exports.watch = watch;
