@@ -27,7 +27,7 @@ gulp.task('video:watch', getTaskWatch('video'));
 gulp.task('images:watch', getTaskWatch('images'));
 gulp.task('sprite-png:watch', getTaskWatch('sprite-png'));
 gulp.task('sprite-svg:watch', getTaskWatch('sprite-svg'));
-gulp.task('webpack:watch', getTaskBuild('webpack'));
+gulp.task('webpack:watch', getTaskWatch('webpack'));
 
 const setmodeProd = done => {
   config.setEnv('production');
