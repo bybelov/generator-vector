@@ -86,12 +86,12 @@ gulp.task(
   gulp.parallel(
     'copy:watch',
     'video:watch',
-    'scss:watch',
     'images:watch',
     'sprite-png:watch',
     'sprite-svg:watch',
     'nunjucks:watch',
-    'webpack:watch'
+    'webpack:watch',
+    'scss:watch'
   )
 );
 

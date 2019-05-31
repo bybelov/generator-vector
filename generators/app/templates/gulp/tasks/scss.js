@@ -42,7 +42,8 @@ const processors = [
 gulp.task('scss', () => gulp
   .src(config.src.scss + '/main.scss')
   .pipe(sourcemaps.init())
-  .pipe(sass().on('error', config.errorHandler))
+  .pipe(sass())
+  .on('error', config.errorHandler)
   .pipe(postcss(processors))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(config.dest.css))
@@ -50,7 +51,7 @@ gulp.task('scss', () => gulp
 
 
 const build = gulp => gulp.parallel('scss');
-const watch = gulp => () => gulp.watch(config.src.scss + '/**/*.{scss}', gulp.parallel('scss'));
+const watch = gulp => () => gulp.watch(config.src.scss + '/**/*.{scss,sass}', gulp.parallel('scss'));
 
 module.exports.build = build;
 module.exports.watch = watch;
