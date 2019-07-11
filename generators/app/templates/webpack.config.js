@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const config = require('./gulp/config');
 
@@ -49,8 +48,6 @@ function createConfig(env) {
 
     plugins: [
 
-      // new UglifyJsPlugin(),
-
       new webpack.LoaderOptionsPlugin({
         options: {
           eslint: {
@@ -59,7 +56,7 @@ function createConfig(env) {
         }
       }),
 
-      // Визуализирует размер js файлов подключенных к проекту
+      // js/report.html
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         analyzerPort: 4000,
@@ -77,7 +74,6 @@ function createConfig(env) {
     ],
 
     resolve: {
-      // дополнительные каталоги к node_modules в которых будут искаться модули
       modules: [
         `${__dirname  }/${  config.src.vendor}`,
         'node_modules',
@@ -145,6 +141,14 @@ function createConfig(env) {
             options: 'window.jQuery',
           }],
         },
+        // Allows you to unload THREE.JS in the global scope
+        {
+          test: require.resolve('THREE'),
+          use: [{
+            loader: 'expose-loader',
+            options: 'window.THREE',
+          }]
+        }
       ],
     },
   };

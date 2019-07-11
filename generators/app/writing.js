@@ -18,6 +18,7 @@ module.exports = function() {
   this.fs.copy(this.templatePath('gitignore'), '.gitignore');
   this.fs.copy(this.templatePath('eslintrc'), '.eslintrc');
   this.fs.copy(this.templatePath('babelrc'), '.babelrc');
+  this.fs.copy(this.templatePath('browserslistrc'), '.browserslistrc');
   this.fs.copy(this.templatePath('gulpfile.babel.js'), 'gulpfile.babel.js');
   this.fs.copy(this.templatePath('jsconfig.json'), 'jsconfig.json');
   this.fs.copy(this.templatePath('webpack.config.js'), 'webpack.config.js');
