@@ -140,15 +140,15 @@ function createConfig(env) {
             loader: 'expose-loader',
             options: 'window.jQuery',
           }],
-        },
-        // Allows you to unload THREE.JS in the global scope
-        {
-          test: require.resolve('THREE'),
-          use: [{
-            loader: 'expose-loader',
-            options: 'window.THREE',
-          }]
         }
+        // Allows you to unload THREE.JS in the global scope
+        // {
+        //   test: require.resolve('THREE'),
+        //   use: [{
+        //     loader: 'expose-loader',
+        //     options: 'window.THREE',
+        //   }]
+        // }
       ],
     },
   };
