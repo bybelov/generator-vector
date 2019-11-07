@@ -20,7 +20,7 @@ module.exports = class extends Generator {
 
   writing() {
 
-    console.log(writeFiles,'WRITE');
+    console.log(writeFiles, 'WRITE');
     writeFiles.call(this);
 
   }

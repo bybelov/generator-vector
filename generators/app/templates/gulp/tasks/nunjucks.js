@@ -18,6 +18,8 @@ function getDataFromFile(file){
 
 var manageEnvironment = function(environment) {
   // The includes() method determines whether one string may be found within another string, returning true or false as appropriate.
+  // find element in array
+  // example: {% if _includes(array, element) %}
   environment.addGlobal('_includes', function(arr, item){
     return _.includes(arr, item);
   })
