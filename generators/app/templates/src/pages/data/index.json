@@ -1,4 +1,8 @@
 {
+  "SETTINGS": {
+    "showOnIndexPage": false,
+    "titleOnIndexPage": "List of layout pages"
+  },
 	"page" : {
 		"title" : "Layout",
 		"url"		: "index.html",

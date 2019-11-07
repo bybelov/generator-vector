@@ -1,7 +1,10 @@
 import './vendor';
 import maskInput from 'vanilla-text-mask';
+import Hello from './app/hello';
 
 window.onload = function () {
+
+  Hello();
 
   let inputTel = document.querySelector('.tel');
 

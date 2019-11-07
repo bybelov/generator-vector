@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import _ from 'lodash';
 import nunjucksRender from 'gulp-nunjucks-render';
 import plumber from 'gulp-plumber';
 import gulpif from 'gulp-if';
@@ -10,6 +11,17 @@ import fs from 'fs';
 import path from 'path';
 import config from '../config';
 
+
+function getDataFromFile(file){
+  return JSON.parse(fs.readFileSync(config.src.data + '/' + path.basename(file.path, '.html') + '.json'));
+}
+
+var manageEnvironment = function(environment) {
+  // The includes() method determines whether one string may be found within another string, returning true or false as appropriate.
+  environment.addGlobal('_includes', function(arr, item){
+    return _.includes(arr, item);
+  })
+}
 
 const renderHtml = onlyChanged => {
 
@@ -24,12 +36,11 @@ const renderHtml = onlyChanged => {
     .pipe(gulpif(onlyChanged, changed(config.dest.pages)))
     .pipe(plumber())
     // .pipe(frontMatter({ property: 'data' }))
-    .pipe(data(function(file) {
-      return JSON.parse(fs.readFileSync(config.src.data + '/' + path.basename(file.path, '.html') + '.json'));
-    }))
+    .pipe(data(getDataFromFile))
     .pipe(nunjucksRender({
       PRODUCTION: config.production,
-      path: [config.src.pages]
+      path: [config.src.pages],
+      manageEnv: manageEnvironment
     }))
     .pipe(prettify({
       indent_size: 2,

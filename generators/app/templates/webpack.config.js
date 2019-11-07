@@ -75,7 +75,7 @@ function createConfig(env) {
 
     resolve: {
       modules: [
-        `${__dirname  }/${  config.src.vendor}`,
+        `${__dirname  }/${config.src.vendor}`,
         'node_modules',
         'bower_components',
       ],
@@ -106,6 +106,7 @@ function createConfig(env) {
           exclude: [
             path.resolve(__dirname, 'node_modules'),
             path.resolve(__dirname, 'bower_components'),
+            path.resolve(__dirname,  `/${config.src.vendor}`)
           ],
         },
 
@@ -117,12 +118,12 @@ function createConfig(env) {
           exclude: [
             /node_modules/,
             /bower_components/,
+            /vendor/
           ],
           loader: 'eslint-loader',
           options: {
             fix: true,
-            cache: true,
-            ignorePattern: __dirname + '/src/js/vendor/'
+            cache: true
           },
         },
         // Allows you to unload jquery in the global scope

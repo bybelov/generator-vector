@@ -1,4 +1,8 @@
 {
+  "SETTINGS": {
+    "showOnIndexPage": true,
+    "titleOnIndexPage": "News list"
+  },
 	"page" : {
 		"title" : "News",
     "url"   : "news.html",

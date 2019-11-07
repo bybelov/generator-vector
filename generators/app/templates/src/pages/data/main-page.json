@@ -1,6 +1,10 @@
 {
+  "SETTINGS": {
+    "showOnIndexPage": true,
+    "titleOnIndexPage": "Main page"
+  },
 	"page" : {
-		"title" : "Main page",
+		"title" : "Home",
 		"url"		: "main-page.html",
 		"breadcrumbs" : [
 			{

@@ -17,13 +17,16 @@ gulp.task('inject', () => gulp
       transform: function (filePath, file) {
         if (filePath.slice(-5) === '.json') {
           let listItem;
-          let test = JSON.parse(fs.readFileSync(config.src.data + '/' + path.basename(file.path)));
+          let data = JSON.parse(fs.readFileSync(config.src.data + '/' + path.basename(file.path)));
           let regexp = /^(.*[\/])*(.+).json/i;
           let filename = filePath.match(regexp);
-          if (filename[2] != 'index') { // исключаем index.html из списка
-            listItem = '<li><a href="' + filename[2] + '.html">' + test.page.title + '</a></li>'
+          if(data.SETTINGS.showOnIndexPage){
+            if (data.SETTINGS.showOnIndexPage !== false) {
+              return '<li><a href="' + filename[2] + '.html">' + data.SETTINGS.titleOnIndexPage + '</a></li>'
+            }
+            const errorMessage = ' No data.SETTINGS.showOnIndexPage object in file: /src/data/' + filename[2] + '.json';
+            log.error(colors.yellow(errorMessage));
           }
-          return listItem;
         }
         // Use the default transform as fallback:
         return inject.transform.apply(inject.transform, arguments);
