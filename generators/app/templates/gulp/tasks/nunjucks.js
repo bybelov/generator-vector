@@ -73,7 +73,7 @@ const watch = gulp => {
 
     gulp.watch([
       config.src.pages + '/**/*.json'
-    ], gulp.series('nunjucks:changed', 'inject'));
+    ], gulp.series('nunjucks', 'nunjucks:changed', 'inject'));
 
   }
 };

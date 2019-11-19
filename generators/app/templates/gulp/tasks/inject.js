@@ -2,6 +2,8 @@ import gulp from 'gulp';
 import fs from 'fs';
 import path from 'path';
 import inject from 'gulp-inject';
+import log from 'fancy-log';
+import colors from 'ansi-colors';
 import config from '../config';
 
 gulp.task('inject', () => gulp
