@@ -1,0 +1,30 @@
+{% extends "components-wrapper/_layout.html" %}
+
+{% block content %}
+<!-- begin main -->
+<main class="main">
+  <div class="container">
+
+    <h1 class="page__title">{{ page.title }}</h1>
+    <br>
+    {% include 'components/_breadcrumbs.html' %}
+
+    {# Start => Do not remove this code! #}
+    <h4>List pages</h4>
+    <ul>
+      <!-- inject:json -->
+      <!-- endinject -->
+    </ul>
+
+    <h4>For developer</h4>
+    <ul>
+      <li><a href="ui-kit.html">ui-kit page</a></li>
+      <li><a href="svg-sprite-preview.html">SVG sprites preview page</a></li>
+      <li><a href="js/report.html">Report js files</a></li>
+    </ul>
+    {# End => Do not remove this code! #}
+
+  </div>
+</main>
+<!-- end main -->
+{% endblock %}

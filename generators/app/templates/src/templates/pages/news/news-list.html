@@ -1,0 +1,16 @@
+{% extends "components-wrapper/_layout.html" %}
+{% import "components-macros/_news-list.html" as list with context %}
+{% block content %}
+{{ super() }}
+<!-- begin main -->
+<main class="main">
+  <div class="container">
+
+    <h1 class="page__title">{{ page.title }}</h1>
+    {% include 'components/_breadcrumbs.html' %}
+    {{ list.newsList('') }}
+
+  </div>
+</main>
+<!-- end main -->
+{% endblock %}

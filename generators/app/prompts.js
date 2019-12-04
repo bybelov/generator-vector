@@ -21,12 +21,6 @@ module.exports = [
   },
   {
     type: 'confirm',
-    name: 'installBootstrap',
-    message: 'You want to install bootstrap? (version 4.3.*)',
-    default: false
-  },
-  {
-    type: 'confirm',
     name: 'install',
     message: 'Install dependencies right now?',
     default: false

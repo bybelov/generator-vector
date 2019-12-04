@@ -16,9 +16,9 @@ const handler = (err, stats, cb) => {
 
   if (errors.length > 0) {
     notify.onError({
-        title: 'Webpack Error',
-        message: '<%= error.message %>',
-        sound: 'Submarine'
+      title: 'Webpack Error',
+      message: '<%= error.message %>',
+      sound: 'Submarine'
     }).call(null, errors[0]);
   }
 
@@ -33,7 +33,7 @@ const handler = (err, stats, cb) => {
   server.server.reload();
   if (typeof cb === 'function') cb();
 
-}
+};
 
 const webpackPromise = () => new Promise(resolve => webpack(webpackConfig, (err, stats) => handler(err, stats, resolve)));
 const webpackPromiseWatch = () => new Promise(resolve => webpack(webpackConfig).watch({

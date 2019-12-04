@@ -1,0 +1,60 @@
+{
+  "SETTINGS": {
+    "showOnIndexPage": true,
+    "titleOnIndexPage": "News list"
+  },
+	"page" : {
+		"title" : "News",
+    "url"   : "news-list.html",
+		"breadcrumbs" : [
+			{
+				"title" : "Main page",
+				"url" : "/main-page.html"
+			}
+		]
+	},
+	"news": [
+		{
+			"title": "Far far away, behind the word mountains",
+			"picture": "/images/demo/news-detail-1.png",
+			"url": "/news/news-detail.html",
+			"date": "23.12.20",
+			"announce": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden"
+		},
+		{
+			"title": "Far far away, behind the word mountains",
+			"picture": "/images/demo/news-detail-1.png",
+			"url": "/news/news-detail.html",
+			"date": "23.12.20",
+			"announce": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics."
+		},
+		{
+			"title": "Far far away, behind the word mountains",
+			"picture": "/images/demo/news-detail-1.png",
+			"url": "/news/news-detail.html",
+			"date": "22.12.20",
+			"announce": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden"
+		},
+		{
+			"title": "Far far away, behind the word mountains",
+			"picture": "/images/demo/news-detail-1.png",
+			"url": "/news/news-detail.html",
+			"date": "22.12.20",
+			"announce": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics."
+		},
+		{
+			"title": "Far far away, behind the word mountains",
+			"picture": "/images/demo/news-detail-1.png",
+			"url": "/news/news-detail.html",
+			"date": "21.12.20",
+			"announce": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden"
+		},
+		{
+			"title": "Far far away",
+			"picture": "/images/demo/news-detail-1.png",
+			"url": "/news/news-detail.html",
+			"date": "20.12.20",
+			"announce": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."
+		}
+	]
+}

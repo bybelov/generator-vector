@@ -2,11 +2,11 @@ import './vendor';
 import maskInput from 'vanilla-text-mask';
 import Hello from './app/hello';
 
-window.onload = function () {
+window.onload = function() {
 
   Hello();
 
-  let inputTel = document.querySelector('.tel');
+  let inputTel = document.querySelector('input[type="tel"]');
 
   if (inputTel != null) {
     const phoneMask = ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
@@ -19,4 +19,4 @@ window.onload = function () {
 
   }
 
-}
+};

@@ -1,0 +1,20 @@
+{% macro newsList(class='', number=100, data=news ) %}
+<div class="news-list {{ class }}">
+  {% for item in news %}
+    {% if loop.index <= number %}
+      <div class="news-item">
+        <figure class="news-item__picture">
+          <a href="{% if item.url != '' %}{{ item.url }}{% else %}#{% endif %}" class="news-item__link">
+            <img src="{{ item.picture }}" alt="{{ item.title }}">
+          </a>
+        </figure>
+        <h4 class="news-item__title">
+          <a href="{% if item.url != '' %}{{ item.url }}{% else %}#{% endif %}" class="news-item__link">{{ item.title }}</a>
+        </h4>
+        <time class="news-item__date" datetime="{{ item.date | replace('.', '-')}}">{{ item.date }}</time>
+        <div class="news-item__announce">{{ item.announce }}</div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endmacro %}

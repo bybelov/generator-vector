@@ -1,0 +1,33 @@
+{% extends "components-wrapper/_layout.html" %}
+{% block content %}
+<!-- begin main -->
+<main class="main">
+  <div class="container">
+
+    <h1 class="page__title">{{ page.title }}</h1>
+    {% include 'components/_breadcrumbs.html' %}
+
+    <!-- BEGIN news-detail -->
+    <div class="news-detail">
+      <div class="news-detail__picture">
+        <figure>
+          <img src="{{ newsDetail.picture }}" alt="News detail picture">
+          <figcaption>
+            Description news detail picture
+          </figcaption>
+        </figure>
+      </div>
+      <div class="news-detail__body">
+        {{ newsDetail.body }}
+      </div>
+      <div class="news-detail__footer">
+        <a href="{{ newsDetail.backURL}}">Back to news list</a>
+      </div>
+    </div>
+    <!-- END news-detail -->
+
+
+  </div>
+</main>
+<!-- end main -->
+{% endblock %}

@@ -6,20 +6,20 @@ import config from '../config';
 gulp.task('sprite:png', done => {
 
   let spriteData = gulp
-        .src(config.src.iconsPng + '/*.png') //выберем откуда брать изображения для объединения в спрайт
-        .pipe(plumber())
-        .pipe(spritesmith({
-          imgName: 'sprite.png', //имя спрайтового изображения
-          cssName: '_img-sprite.scss', //имя стиля где храним позиции изображений в спрайте
-          imgPath: '../images/sprite.png', //путь где лежит спрайт (для стилей)
-          cssFormat: 'scss', //формат в котором обрабатываем позиции
-          cssTemplate: 'gulp/tasks/sprite-png/imgToScssSprite.mustache', //файл маски
-          cssVarMap: function(sprite) {
-            sprite.name = 's-' + sprite.name; //имя каждого спрайта будет состоять из имени файла и конструкции 's-' в начале имени
-          }
-        }));
-      spriteData.img.pipe(gulp.dest(config.dest.images)); // путь, куда сохраняем картинку
-      spriteData.css.pipe(gulp.dest(config.src.scss + '/6-components/sprites')); // путь, куда сохраняем стили
+    .src(config.src.iconsPng + '/*.png') // source picture for sprite
+    .pipe(plumber())
+    .pipe(spritesmith({
+      imgName: 'sprite.png', // file name sprite image
+      cssName: '_img-sprite.scss', // file name style sprite
+      imgPath: '../images/sprite.png', // path for sprite
+      cssFormat: 'scss',
+      cssTemplate: 'gulp/tasks/sprite-png/imgToScssSprite.mustache', // mask
+      cssVarMap: function(sprite) {
+        sprite.name = 's-' + sprite.name; // name every sprite
+      }
+    }));
+  spriteData.img.pipe(gulp.dest(config.dest.images)); // destination path for sprite
+  spriteData.css.pipe(gulp.dest(config.src.scss + '/6-components/sprites')); // destination path for styles
 
   done();
 });

@@ -5,8 +5,7 @@ const config = require('./gulp/config');
 
 function createConfig(env) {
 
-  let isProduction,
-      webpackConfig;
+  let isProduction, webpackConfig;
 
   if (env === undefined) {
     env = process.env.NODE_ENV;
@@ -75,7 +74,7 @@ function createConfig(env) {
 
     resolve: {
       modules: [
-        `${__dirname  }/${config.src.vendor}`,
+        `${__dirname}/${config.src.vendor}`,
         'node_modules',
         'bower_components',
       ],
@@ -106,12 +105,12 @@ function createConfig(env) {
           exclude: [
             path.resolve(__dirname, 'node_modules'),
             path.resolve(__dirname, 'bower_components'),
-            path.resolve(__dirname,  `/${config.src.vendor}`)
+            path.resolve(__dirname, `/${config.src.vendor}`)
           ],
         },
 
         // The pre parameter to check the source files
-        // not modified by other loaders (eg babel-loader)
+        // not modified by other loaders (eg babel-loader)
         {
           enforce: 'pre',
           test: /\.js$/,
@@ -142,7 +141,15 @@ function createConfig(env) {
             options: 'window.jQuery',
           }],
         }
-        // Allows you to unload THREE.JS in the global scope
+        // Allows you use Swiper.js in global scope
+        // {
+        //   test: require.resolve('swiper'),
+        //   use: [{
+        //     loader: 'expose-loader',
+        //     options: 'Swiper',
+        //   }],
+        // },
+        // Allows you to use THREE.JS in the global scope
         // {
         //   test: require.resolve('THREE'),
         //   use: [{

@@ -1,48 +1,35 @@
-/* 0 Setting & 1 Tools */
-
+// ================================================ SETTINGS 0
+// =================================================== TOOLS 1
 @import "1-tools/functions";
 @import "0-settings/variables";
 @import "1-tools/mixins";
 
-/* 2 Fonts  */
-
+// =================================================== FONTS 2
 @import "2-fonts/font-face";
 
-/* 3 Generic  */
+// ================================================= GENERIC 3
+// @import '3-generic/';
 
-@import "3-generic/reset";
-@import "3-generic/print";
+// ================================================== VENDOR 4
+@import '4-vendor/bootstrap/scss/bootstrap.scss';
 
-/* 4 Vendor */
+// ================================================ ELEMENTS 5
+@import "5-elements/body";
 
-// @import "4-vendor/";
-
-/* 5 Elements */
-
-@import "5-elements/typography";
-@import "5-elements/code";
-@import "5-elements/tables";
-@import "5-elements/form";
-@import "5-elements/radio";
-@import "5-elements/checkbox";
-@import "5-elements/button";
-
-/* 6 Components */
-
+// ============================================== COMPONENTS 6
+// Don't edit --->
 @import "6-components/sprites/img-sprite";
 @import "6-components/sprites/svg-sprite";
+// <--- Dont't edit
 
-@import "6-components/layout";
+@import "6-components/page";
+@import "6-components/main";
+@import "6-components/section";
 @import "6-components/header";
 @import "6-components/footer";
 @import "6-components/menu";
 @import "6-components/breadcrumb";
 @import "6-components/news";
 
-/* 7 Helpers */
-
-@import "7-helpers/displays";
-@import "7-helpers/positions";
-@import "7-helpers/clearfix";
-@import "7-helpers/colors";
-@import "7-helpers/states";
+// ================================================= HELPERS 7
+@import "7-helpers/fonts";

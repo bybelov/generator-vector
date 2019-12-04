@@ -5,7 +5,7 @@ import colors from 'ansi-colors';
 import config from '../config';
 
 const build = () => {
-  return function(){
+  return function() {
     return del([
       config.dest.root
     ]).then(function(paths) {

@@ -1,0 +1,23 @@
+{% set
+  items = [
+    {
+      title : 'Main page',
+      url: '/main-page.html'
+    },
+    {
+      title: 'News',
+      url: '/news/news-list.html'
+    }
+  ]
+%}
+<nav class="menu">
+  <ul class="menu__inner">
+  {% for item in items %}
+    <li class="menu-item{% if _includes(item.url, page.url) %} active{% endif %}">
+      <a href="{{ item.url }}" class="menu-item__link">
+        {{ item.title }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</nav>

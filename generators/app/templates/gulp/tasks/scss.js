@@ -12,20 +12,20 @@ const isMax = mq => /max-width/.test(mq);
 const isMin = mq => /min-width/.test(mq);
 
 const sortMediaQueries = (a, b) => {
-    let A = a.replace(/\D/g, '');
-    let B = b.replace(/\D/g, '');
+  let A = a.replace(/\D/g, '');
+  let B = b.replace(/\D/g, '');
 
-    if (isMax(a) && isMax(b)) {
-        return B - A;
-    } else if (isMin(a) && isMin(b)) {
-        return A - B;
-    } else if (isMax(a) && isMin(b)) {
-        return 1;
-    } else if (isMin(a) && isMax(b)) {
-        return -1;
-    }
+  if (isMax(a) && isMax(b)) {
+    return B - A;
+  } else if (isMin(a) && isMin(b)) {
+    return A - B;
+  } else if (isMax(a) && isMin(b)) {
     return 1;
-}
+  } else if (isMin(a) && isMax(b)) {
+    return -1;
+  }
+  return 1;
+};
 
 const processors = [
   autoprefixer({
@@ -42,8 +42,7 @@ const processors = [
 gulp.task('scss', () => gulp
   .src(config.src.scss + '/main.scss')
   .pipe(sourcemaps.init())
-  .pipe(sass())
-  .on('error', config.errorHandler)
+  .pipe(sass().on('error', config.errorHandler))
   .pipe(postcss(processors))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(config.dest.css))

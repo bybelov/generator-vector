@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import fs from 'fs';
-import path from 'path';
 import inject from 'gulp-inject';
 import log from 'fancy-log';
 import colors from 'ansi-colors';
@@ -12,21 +11,21 @@ gulp.task('inject', () => gulp
   .pipe(inject(
 
     gulp.src(
-      [config.src.pages + '/data/*.json'], {
+      [config.src.data + '/**/*.json'], {
         read: false,
         relative: true
       }), {
-      transform: function (filePath, file) {
+      transform: function(filePath, file) {
         if (filePath.slice(-5) === '.json') {
-          let data = JSON.parse(fs.readFileSync(config.src.data + '/' + path.basename(file.path)));
-          let regexp = /^(.*[\/])*(.+).json/i;
-          let filename = filePath.match(regexp);
+          const fullPath = file.relative.replace(/\.[^/.]+$/, '');
+          const data = JSON.parse(fs.readFileSync(config.src.data + '/' + fullPath + '.json'));
+
           if (data.SETTINGS) {
             if (data.SETTINGS.showOnIndexPage && data.SETTINGS.showOnIndexPage !== false) {
-              return '<li><a href="' + filename[2] + '.html">' + data.SETTINGS.titleOnIndexPage + '</a></li>';
+              return '<li><a href="' + fullPath + '.html">' + data.SETTINGS.titleOnIndexPage + '</a></li>';
             }
           } else {
-            const errorMessage = `No data.SETTINGS object in file: /src/data/${filename[2]}.json`;
+            const errorMessage = `No data.SETTINGS object in file: ${file.path}`;
             log.error(colors.yellow(errorMessage));
           }
         }

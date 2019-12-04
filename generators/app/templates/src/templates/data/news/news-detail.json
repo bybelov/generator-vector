@@ -1,0 +1,25 @@
+{
+	"SETTINGS": {
+    "showOnIndexPage": true,
+    "titleOnIndexPage": "News. Detail page"
+  },
+	"page" : {
+		"title" : "Far far away, behind the word mountains",
+		"url"		: "news-detail.html",
+		"breadcrumbs" : [
+			{
+				"title" : "Main page",
+				"url" : "/main-page.html"
+			},
+			{
+				"title" : "News list",
+				"url" : "/news/news-list.html"
+			}
+		]
+	},
+	"newsDetail": {
+		"picture": "/images/demo/news-detail-1.png",
+		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis interdum tellus. Donec laoreet tristique ligula. Etiam accumsan rhoncus massa, non congue tellus interdum vitae. Fusce sollicitudin magna eget ipsum ornare fermentum. Aliquam non velit in lorem imperdiet maximus ut id justo. Nunc luctus magna nec lorem interdum tincidunt. Phasellus dictum convallis justo, et aliquet enim pharetra eu. Quisque et enim sed nisi imperdiet laoreet. Aenean mollis odio metus, quis tempus arcu volutpat tincidunt. Fusce et tellus lobortis, consequat elit non, tristique leo. Ut in molestie urna. Aliquam eu dui ante. Vestibulum blandit laoreet quam ac interdum. Praesent placerat vel.",
+		"backURL": "news-list.html"
+	}
+}

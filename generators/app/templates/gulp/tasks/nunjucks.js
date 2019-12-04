@@ -5,25 +5,25 @@ import plumber from 'gulp-plumber';
 import gulpif from 'gulp-if';
 import changed from 'gulp-changed';
 import prettify from 'gulp-prettify';
-// import frontMatter from 'gulp-front-matter';
 import data from 'gulp-data';
 import fs from 'fs';
-import path from 'path';
 import config from '../config';
 
 
-function getDataFromFile(file){
-  return JSON.parse(fs.readFileSync(config.src.data + '/' + path.basename(file.path, '.html') + '.json'));
+function getDataFromFile(file) {
+  let fullPath = file.relative.replace(/\.[^/.]+$/, '');
+  fullPath = fullPath.replace(/(pages\\)/, '');
+  return JSON.parse(fs.readFileSync(config.src.data + '/' + fullPath + '.json'));
 }
 
 var manageEnvironment = function(environment) {
   // The includes() method determines whether one string may be found within another string, returning true or false as appropriate.
   // find element in array
   // example: {% if _includes(array, element) %}
-  environment.addGlobal('_includes', function(arr, item){
+  environment.addGlobal('_includes', function(arr, item) {
     return _.includes(arr, item);
-  })
-}
+  });
+};
 
 const renderHtml = onlyChanged => {
 
@@ -37,11 +37,10 @@ const renderHtml = onlyChanged => {
     .src([config.src.pages + '/**/[^_]*.html'])
     .pipe(gulpif(onlyChanged, changed(config.dest.pages)))
     .pipe(plumber())
-    // .pipe(frontMatter({ property: 'data' }))
     .pipe(data(getDataFromFile))
     .pipe(nunjucksRender({
       PRODUCTION: config.production,
-      path: [config.src.pages],
+      path: [config.src.templates],
       manageEnv: manageEnvironment
     }))
     .pipe(prettify({
@@ -53,7 +52,7 @@ const renderHtml = onlyChanged => {
     }))
     .pipe(gulp.dest(config.dest.pages));
 
-}
+};
 
 gulp.task('nunjucks', () => renderHtml());
 gulp.task('nunjucks:changed', () => renderHtml(true));
@@ -64,18 +63,18 @@ const watch = gulp => {
   return function() {
 
     gulp.watch([
-      config.src.pages + '/**/[^_]*.html'
+      config.src.templates + '/**/[^_]*.html'
     ], gulp.series('nunjucks:changed', 'inject'));
 
     gulp.watch([
-      config.src.pages + '/**/_*.html'
+      config.src.templates + '/**/_*.html'
     ], gulp.series('nunjucks', 'inject'));
 
     gulp.watch([
-      config.src.pages + '/**/*.json'
+      config.src.data + '/**/*.json'
     ], gulp.series('nunjucks', 'nunjucks:changed', 'inject'));
 
-  }
+  };
 };
 
 module.exports.build = build;

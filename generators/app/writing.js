@@ -14,7 +14,7 @@ module.exports = function() {
     capitalize: _.capitalize
   };
 
-  // Dotfiles
+  // Dot files
   this.fs.copy(this.templatePath('gitignore'), '.gitignore');
   this.fs.copy(this.templatePath('eslintrc'), '.eslintrc');
   this.fs.copy(this.templatePath('babelrc'), '.babelrc');
@@ -35,37 +35,20 @@ module.exports = function() {
   this.fs.copy(this.templatePath('src/videos/**/*.*'), 'src/videos/');
 
   // Src pages
-  this.fs.copy(this.templatePath('src/pages/**/*.*'), 'src/pages/');
+  this.fs.copy(this.templatePath('src/templates/**/*.*'), 'src/templates/');
 
   // Src js
   this.fs.copy(this.templatePath('src/js/**/*.*'), 'src/js/');
-  this.fs.copyTpl(this.templatePath('src/js/vendor.js'), 'src/js/vendor.js', props);
 
-  // Src styles
-  if (props.installBootstrap) {
-    this.fs.copy(
-      this.templatePath('src/scss/0-settings/_variables-bootstrap.scss'),
-      'src/scss/0-settings/_variables.scss'
-    );
-    mkdirp(path.join(destPath, 'src/scss/3-generic'));
-    mkdirp(path.join(destPath, 'src/scss/5-elements'));
-    this.fs.copy(this.templatePath('src/scss/main-bootstrap.scss'), 'src/scss/main.scss');
-  } else {
-    this.fs.copy(
-      this.templatePath('src/scss/0-settings/_variables.scss'),
-      'src/scss/0-settings/_variables.scss'
-    );
-    this.fs.copy(this.templatePath('src/scss/3-generic/**/*.*'), 'src/scss/3-generic/');
-    this.fs.copy(this.templatePath('src/scss/5-elements/**/*.*'), 'src/scss/5-elements/');
-    this.fs.copy(this.templatePath('src/scss/main.scss'), 'src/scss/main.scss');
-  }
-
+  // Src scss
+  this.fs.copy(this.templatePath('src/scss/0-settings/*.scss'), 'src/scss/0-settings/');
   this.fs.copy(this.templatePath('src/scss/1-tools/**/*.*'), 'src/scss/1-tools/');
   this.fs.copy(this.templatePath('src/scss/2-fonts/**/*.*'), 'src/scss/2-fonts/');
-  mkdirp(path.join(destPath, 'src/scss/4-vendor'));
-  this.fs.copy(
-    this.templatePath('src/scss/6-components/**/*.*'),
-    'src/scss/6-components/'
-  );
+  mkdirp(path.join(destPath, 'src/scss/3-generic'));
+  this.fs.copy(this.templatePath('src/scss/4-vendor/**/*.*'), 'src/scss/4-vendor/');
+  this.fs.copy(this.templatePath('src/scss/5-elements/**/*.*'), 'src/scss/5-elements/');
+  this.fs.copy(this.templatePath('src/scss/6-components/**/*.*'),'src/scss/6-components/');
   this.fs.copy(this.templatePath('src/scss/7-helpers/**/*.*'), 'src/scss/7-helpers/');
+  this.fs.copy(this.templatePath('src/scss/main.scss'), 'src/scss/main.scss');
+
 };

@@ -1,0 +1,16 @@
+{
+  "SETTINGS": {
+    "showOnIndexPage": false,
+    "titleOnIndexPage": "For develop. UI kit"
+  },
+	"page" : {
+		"title" : "Default UI kit",
+		"url"		: "ui-kit.html",
+		"breadcrumbs" : [
+			{
+				"title" : "",
+				"url" : ""
+			}
+		]
+	}
+}
