@@ -47,8 +47,10 @@ module.exports = function() {
   mkdirp(path.join(destPath, 'src/scss/3-generic'));
   this.fs.copy(this.templatePath('src/scss/4-vendor/**/*.*'), 'src/scss/4-vendor/');
   this.fs.copy(this.templatePath('src/scss/5-elements/**/*.*'), 'src/scss/5-elements/');
-  this.fs.copy(this.templatePath('src/scss/6-components/**/*.*'),'src/scss/6-components/');
+  this.fs.copy(
+    this.templatePath('src/scss/6-components/**/*.*'),
+    'src/scss/6-components/'
+  );
   this.fs.copy(this.templatePath('src/scss/7-helpers/**/*.*'), 'src/scss/7-helpers/');
   this.fs.copy(this.templatePath('src/scss/main.scss'), 'src/scss/main.scss');
-
 };

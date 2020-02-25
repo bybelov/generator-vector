@@ -8,9 +8,12 @@ const writeFiles = require('./writing');
 
 module.exports = class extends Generator {
   prompting() {
-
     this.log(
-      yosay(`Hello! This is a ${chalk.blue('generator-vector')} workflow for frontend!`)
+      yosay(
+        `Hi! This is the ${chalk.green('generator-vector')} ${chalk.red(
+          '0.9.2'
+        )} workflow for frontend!`
+      )
     );
 
     return this.prompt(prompts).then(props => {
@@ -19,10 +22,8 @@ module.exports = class extends Generator {
   }
 
   writing() {
-
     console.log(writeFiles, 'WRITE');
     writeFiles.call(this);
-
   }
 
   install() {
